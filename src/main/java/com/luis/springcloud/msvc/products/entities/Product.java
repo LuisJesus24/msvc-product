@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "products")
@@ -24,6 +25,17 @@ public class Product {
      //Tomando en cuenta si en la tabla tiene un nombre diferente
      @Column(name = "create_at")
     private LocalDate createAT;
+
+    @Transient
+    private int port;
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
 
     public Long getId() {
         return id;
